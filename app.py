@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 from flask import Flask, render_template
 from urllib.parse import urlparse
-
+app = Flask(__name__)
 # Function to create a database connection
 def create_connection():
     # Get the ClearDB database URL
