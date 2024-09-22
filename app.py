@@ -4,18 +4,21 @@ import matplotlib.pyplot as plt
 import os
 from flask import Flask, render_template
 from dotenv import load_dotenv
-load_dotenv()
+from urllib.parse import urlparse
 
+# Load environment variables from .env
+load_dotenv()
 
 app = Flask(__name__)
 
 # Connect to the database
 def create_connection():
+    db_url = urlparse(os.getenv('CLEARDB_DATABASE_URL'))
     connection = mysql.connector.connect(
-        host=os.getenv('DB_HOST'),          # Database host
-        user=os.getenv('DB_USER'),          # Database username
-        password=os.getenv('DB_PASSWORD'),  # Database password
-        database=os.getenv('DB_NAME')       # Database name
+        host=db_url.hostname,          # Database host from URL
+        user=db_url.username,          # Database username from URL
+        password=db_url.password,      # Database password from URL
+        database=db_url.path.lstrip('/') # Database name from URL
     )
     return connection
 
