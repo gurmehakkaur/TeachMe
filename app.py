@@ -3,15 +3,22 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 from flask import Flask, render_template
-from dotenv import load_dotenv
 from urllib.parse import urlparse
 
+# Function to create a database connection
 def create_connection():
+    # Get the ClearDB database URL
+    url = os.getenv('CLEARDB_DATABASE_URL')
+    if url is None:
+        raise Exception("CLEARDB_DATABASE_URL environment variable not set.")
+
+    # Parse the database URL
+    url = urlparse(url)
     connection = mysql.connector.connect(
-        host=os.getenv('DB_HOST'),        
-        user=os.getenv('DB_USER'),    
-        password=os.getenv('DB_PASSWORD'),  
-        database=os.getenv('DB_NAME')   
+        host=url.hostname,
+        user=url.username,
+        password=url.password,
+        database=url.path[1:]  # Remove the leading slash
     )
     return connection
 
