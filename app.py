@@ -23,14 +23,7 @@ def create_connection():
     return connection
 
 # Fetch course feedback data
-def fetch_feedback_data(connection):
-    query = """
-    SELECT Courses.Title, AVG(CourseFeedback.Rating) as AverageRating
-    FROM CourseFeedback
-    JOIN Courses ON CourseFeedback.CourseID = Courses.CourseID
-    GROUP BY Courses.Title;
-    """
-    return pd.read_sql(query, connection)
+
 
 # Fetch enrollment data
 def fetch_enrollment_data(connection):
