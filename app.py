@@ -5,20 +5,20 @@ import os
 from flask import Flask, render_template
 from urllib.parse import urlparse
 app = Flask(__name__)
-# Function to create a database connection
+
 def create_connection():
     # Get the ClearDB database URL
     url = os.getenv('CLEARDB_DATABASE_URL')
     if url is None:
         raise Exception("CLEARDB_DATABASE_URL environment variable not set.")
 
-    # Parse the database URL
+
     url = urlparse(url)
     connection = mysql.connector.connect(
         host=url.hostname,
         user=url.username,
         password=url.password,
-        database=url.path[1:]  # Remove the leading slash
+        database=url.path[1:]  
     )
     return connection
 
