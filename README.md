@@ -1,4 +1,4 @@
-*TeachMe Analytical Dashboard
+**TeachMe Analytical Dashboard
 Live: TeachMe Dashboard
 
 Overview
