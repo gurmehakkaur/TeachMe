@@ -1,5 +1,7 @@
 ****TeachMe Analytical Dashboard
 
+Live: https://teachmestats.netlify.app/
+
 **Overview
 This project connects to a MySQL database hosted on Heroku using ClearDB and fetches data from tables such as Courses, Users, Enrollments, and CourseFeedback. 
 It then processes the database using Pandas and visualizes these data points as graphs using Matplotlib and Seaborn, displaying the results on a web-based dashboard built with Flask.
