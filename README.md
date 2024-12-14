@@ -37,7 +37,7 @@ The **TeachMe Analytical Dashboard** is a web-based data visualization tool that
 ### 6. Display the full name of students along with their enrollment dates, formatted.
 ![image](https://github.com/user-attachments/assets/2532d440-4e51-42a7-b246-1cf934320c11)
 
-### 8. Find the average course price for instructors who have more than one course.
+### 7. Find the average course price for instructors who have more than one course.
 ![image](https://github.com/user-attachments/assets/48ca9073-ecb5-4cef-ac1c-4cc42001ef04)
 
 
