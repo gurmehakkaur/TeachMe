@@ -15,6 +15,9 @@ The **TeachMe Analytical Dashboard** is a web-based data visualization tool that
 - **Frontend**: HTML, CSS, Bootstrap (for UI styling)
 - **Deployment**: Heroku
 
+![image](https://github.com/user-attachments/assets/fae35539-1e89-482d-b008-859f967b0b19)
+
+
 ## **How to Run**
 
 ### **1. Set Up Database**
