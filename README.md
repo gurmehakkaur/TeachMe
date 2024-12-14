@@ -22,26 +22,6 @@ The **TeachMe Analytical Dashboard** is a web-based data visualization tool that
 ![image](https://github.com/user-attachments/assets/59664f48-62ac-4b41-95e0-da1d2c63d266)
 ![image](https://github.com/user-attachments/assets/c0153963-e78b-407b-b027-67fc9c7afe41)
 
-
-
-
-
-
-
-
-
-
-
-
-
-## **Key Technologies Used**
-- **Backend**: Python (Flask)
-- **Database**: MySQL (ClearDB on Heroku)
-- **Data Processing**: Pandas
-- **Data Visualization**: Matplotlib, Seaborn
-- **Frontend**: HTML, CSS, Bootstrap (for UI styling)
-- **Deployment**: Heroku
-
 ![image](https://github.com/user-attachments/assets/fae35539-1e89-482d-b008-859f967b0b19)
 
 ## DQL Queries
@@ -67,6 +47,13 @@ The **TeachMe Analytical Dashboard** is a web-based data visualization tool that
 ### 7. Find the average course price for instructors who have more than one course.
 ![image](https://github.com/user-attachments/assets/48ca9073-ecb5-4cef-ac1c-4cc42001ef04)
 
+## **Key Technologies Used**
+- **Backend**: Python (Flask)
+- **Database**: MySQL (ClearDB on Heroku)
+- **Data Processing**: Pandas
+- **Data Visualization**: Matplotlib, Seaborn
+- **Frontend**: HTML, CSS, Bootstrap (for UI styling)
+- **Deployment**: Heroku
 
 
 
