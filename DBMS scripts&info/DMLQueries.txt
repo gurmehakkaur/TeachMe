@@ -1,44 +1,67 @@
--- Create and populate the Users table
-INSERT INTO Users (UserID, FirstName, LastName, Email, Password, Role)
-VALUES 
-    (101, 'Michael', 'Scott', 'michael.scott@dundermifflin.com', 'hashedpassword1', 'Student'),
-    (202, 'Pam', 'Beesly', 'pam.beesly@dundermifflin.com', 'hashedpassword2', 'Instructor'),
-    (303, 'Jim', 'Halpert', 'jim.halpert@dundermifflin.com', 'hashedpassword3', 'Student'),
-    (404, 'Dwight', 'Schrute', 'dwight.schrute@dundermifflin.com', 'hashedpassword4', 'Instructor'),
-    (505, 'Angela', 'Martin', 'angela.martin@dundermifflin.com', 'hashedpassword5', 'Student');
+-- Insert multiple records into Users table using INSERT ALL
+INSERT ALL
+    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
+    VALUES (101, 'Michael', 'Scott', 'michael.scott@dundermifflin.com', 'hashedpassword1', 'Student')
+    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
+    VALUES (202, 'Pam', 'Beesly', 'pam.beesly@dundermifflin.com', 'hashedpassword2', 'Instructor')
+    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
+    VALUES (303, 'Jim', 'Halpert', 'jim.halpert@dundermifflin.com', 'hashedpassword3', 'Student')
+    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
+    VALUES (404, 'Dwight', 'Schrute', 'dwight.schrute@dundermifflin.com', 'hashedpassword4', 'Instructor')
+    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
+    VALUES (505, 'Angela', 'Martin', 'angela.martin@dundermifflin.com', 'hashedpassword5', 'Student')
+SELECT * FROM dual;
 
--- Create and populate the Courses table
-INSERT INTO Courses (CourseID, CourseName, InstructorID, Credits)
-VALUES 
-    ('ENG101', 'English Literature', 202, 3),
-    ('CS102', 'Introduction to Programming', 404, 4),
-    ('MATH103', 'Calculus I', 404, 3),
-    ('BUS104', 'Principles of Management', 202, 3);
+-- Insert multiple records into Courses table using INSERT ALL
+INSERT ALL
+    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
+    VALUES ('ENG101', 'English Literature', 202, 3)
+    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
+    VALUES ('CS102', 'Introduction to Programming', 404, 4)
+    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
+    VALUES ('MATH103', 'Calculus I', 404, 3)
+    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
+    VALUES ('BUS104', 'Principles of Management', 202, 3)
+SELECT * FROM dual;
 
--- Create and populate the Enrollments table (Child table referencing Users and Courses)
-INSERT INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate)
-VALUES 
-    (501, 101, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD')),
-    (502, 303, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD')),
-    (503, 101, 'CS102', TO_DATE('2024-09-05', 'YYYY-MM-DD')),
-    (504, 505, 'MATH103', TO_DATE('2024-09-10', 'YYYY-MM-DD')),
-    (505, 303, 'BUS104', TO_DATE('2024-09-15', 'YYYY-MM-DD')),
-    (506, 505, 'ENG101', TO_DATE('2024-09-20', 'YYYY-MM-DD'));
+-- Insert multiple records into Enrollments table using INSERT ALL
+INSERT ALL
+    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
+    VALUES (501, 101, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD'))
+    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
+    VALUES (502, 303, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD'))
+    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
+    VALUES (503, 101, 'CS102', TO_DATE('2024-09-05', 'YYYY-MM-DD'))
+    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
+    VALUES (504, 505, 'MATH103', TO_DATE('2024-09-10', 'YYYY-MM-DD'))
+    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
+    VALUES (505, 303, 'BUS104', TO_DATE('2024-09-15', 'YYYY-MM-DD'))
+SELECT * FROM dual;
 
--- Create and populate the Assignments table (Child table referencing Courses)
-INSERT INTO Assignments (AssignmentID, CourseID, Title, DueDate)
-VALUES 
-    (1001, 'ENG101', 'Essay on Shakespeare', TO_DATE('2024-10-01', 'YYYY-MM-DD')),
-    (1002, 'CS102', 'Programming Basics', TO_DATE('2024-10-05', 'YYYY-MM-DD')),
-    (1003, 'MATH103', 'Limits and Derivatives', TO_DATE('2024-10-10', 'YYYY-MM-DD')),
-    (1004, 'BUS104', 'Management Case Study', TO_DATE('2024-10-15', 'YYYY-MM-DD'));
+-- Insert multiple records into Assignments table using INSERT ALL
+INSERT ALL
+    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
+    VALUES (1001, 'ENG101', 'Essay on Shakespeare', TO_DATE('2024-10-01', 'YYYY-MM-DD'))
+    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
+    VALUES (1002, 'CS102', 'Programming Basics', TO_DATE('2024-10-05', 'YYYY-MM-DD'))
+    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
+    VALUES (1003, 'MATH103', 'Limits and Derivatives', TO_DATE('2024-10-10', 'YYYY-MM-DD'))
+    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
+    VALUES (1004, 'BUS104', 'Management Case Study', TO_DATE('2024-10-15', 'YYYY-MM-DD'))
+SELECT * FROM dual;
 
--- Create and populate the Submissions table (Child table referencing Assignments and Users)
-INSERT INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade)
-VALUES 
-    (2001, 1001, 101, TO_DATE('2024-10-01', 'YYYY-MM-DD'), 85),
-    (2002, 1001, 303, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 90),
-    (2003, 1002, 101, TO_DATE('2024-10-05', 'YYYY-MM-DD'), 88),
-    (2004, 1003, 505, TO_DATE('2024-10-12', 'YYYY-MM-DD'), 92),
-    (2005, 1004, 303, TO_DATE('2024-10-16', 'YYYY-MM-DD'), 78),
-    (2006, 1001, 505, TO_DATE('2024-10-03', 'YYYY-MM-DD'), 80);
+-- Insert multiple records into Submissions table using INSERT ALL
+INSERT ALL
+    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
+    VALUES (2001, 1001, 101, TO_DATE('2024-10-01', 'YYYY-MM-DD'), 85)
+    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
+    VALUES (2002, 1001, 303, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 90)
+    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
+    VALUES (2003, 1002, 101, TO_DATE('2024-10-05', 'YYYY-MM-DD'), 88)
+    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
+    VALUES (2004, 1003, 505, TO_DATE('2024-10-12', 'YYYY-MM-DD'), 92)
+    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
+    VALUES (2005, 1004, 303, TO_DATE('2024-10-16', 'YYYY-MM-DD'), 78)
+    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
+    VALUES (2006, 1001, 505, TO_DATE('2024-10-03', 'YYYY-MM-DD'), 80)
+SELECT * FROM dual;
