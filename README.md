@@ -5,7 +5,9 @@
 
 
 ## **Overview**
-The **TeachMe Analytical Dashboard** is a web-based data visualization tool that connects to a MySQL database hosted on Heroku (ClearDB). It fetches and processes data from tables like `Courses`, `Users`, `Enrollments`, and `CourseFeedback`. Using **Pandas** for data processing and **Matplotlib** and **Seaborn** for data visualization, it displays insights and analytics on a Flask-based dashboard.
+**TeachMe** is like a clone of Udemy, and I have created a relational database for the application, although it has hypothetical data, the main focus was to be able to structure a complex real-life database, taking care of business logic. Also, I have shown my expertise in querying data using complex joins and subqueries with the screenshots pasted later in this document. The last and final step was to create **TeachMe Analytical Dashboard**, a web-based data visualization tool that connects to a MySQL database hosted on Heroku (ClearDB). It fetches and processes data from all tables of the database and uses **Pandas** for data processing and **Matplotlib** and **Seaborn** for data visualization, thus helping to present users data in an analytical manner which can lead to accurate business planning. 
+
+Overall, this project showcases my expertise in database administration, advanced querying techniques, data processing, and data visualization, demonstrating my ability to manage and analyze complex datasets effectively.
 
 ## Business Rules
 ![image](https://github.com/user-attachments/assets/7db9ab08-a349-4b42-8d5e-210ae3b6864c)
