@@ -1,108 +1,44 @@
-SELECT * FROM USERS;
--- Populate Users Table
-INSERT ALL
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role)
-    VALUES (1,'John', 'Doe', 'john@example.com', 'hashedpassword1', 'Student')
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role)
-    VALUES (2, 'Jane', 'Smith', 'jane@example.com', 'hashedpassword2', 'Instructor')
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role)
-    VALUES (3, 'Alice', 'Johnson', 'alice@example.com', 'hashedpassword3', 'Student')
-    INTO Users (UserID,FirstName, LastName, Email, Password, Role)
-    VALUES (4, 'Bob', 'Brown', 'bob@example.com', 'hashedpassword4', 'Instructor')
-SELECT * FROM dual;
+-- Create and populate the Users table
+INSERT INTO Users (UserID, FirstName, LastName, Email, Password, Role)
+VALUES 
+    (101, 'Michael', 'Scott', 'michael.scott@dundermifflin.com', 'hashedpassword1', 'Student'),
+    (202, 'Pam', 'Beesly', 'pam.beesly@dundermifflin.com', 'hashedpassword2', 'Instructor'),
+    (303, 'Jim', 'Halpert', 'jim.halpert@dundermifflin.com', 'hashedpassword3', 'Student'),
+    (404, 'Dwight', 'Schrute', 'dwight.schrute@dundermifflin.com', 'hashedpassword4', 'Instructor'),
+    (505, 'Angela', 'Martin', 'angela.martin@dundermifflin.com', 'hashedpassword5', 'Student');
 
--- Populate Profiles Table
-INSERT ALL
-    INTO Profiles (ProfileID, UserID, Bio, ProfilePicture, Industry)
-    VALUES (1,1, 'Cooking and learning Lover', 'https://something.com/profilepic1.jpg', 'Tech')
-    INTO Profiles (ProfileID,UserID, Bio, ProfilePicture, Industry)
-    VALUES (2, 2, 'Experienced software developer.', 'https://something.com/profilepic2.jpg', 'Tech')
-    INTO Profiles (ProfileID,UserID, Bio, ProfilePicture, Industry)
-    VALUES (3, 3, 'Passionate about AI and Machine Learning.', 'https://something.com/profilepic3.jpg', 'AI')
-    INTO Profiles (ProfileID,UserID, Bio, ProfilePicture, Industry)
-    VALUES (4, 4, 'Interseted in web development.', 'https://something.com/profilepic4.jpg', 'Web Development')
-SELECT * FROM dual;
+-- Create and populate the Courses table
+INSERT INTO Courses (CourseID, CourseName, InstructorID, Credits)
+VALUES 
+    ('ENG101', 'English Literature', 202, 3),
+    ('CS102', 'Introduction to Programming', 404, 4),
+    ('MATH103', 'Calculus I', 404, 3),
+    ('BUS104', 'Principles of Management', 202, 3);
 
--- Populate Courses Table
-INSERT ALL
-    INTO Courses (CourseID, InstructorID, Title, Description, Industry, IsCertified, Price)
-    VALUES (1,2, 'Intro to Programming', 'Learn the basics of programming', 'Tech', 'Y', 49.99)
-    INTO Courses (CourseID,InstructorID, Title, Description, Industry, IsCertified, Price)
-    VALUES (2,4, 'Advanced Web Development', 'Master web development skills', 'Web Development', 'Y', 99.99)
-    INTO Courses (CourseID,InstructorID, Title, Description, Industry, IsCertified, Price)
-    VALUES (3,2, 'Data Structures', 'In-depth course on data structures', 'Tech', 'N', 59.99)
-    INTO Courses (CourseID,InstructorID, Title, Description, Industry, IsCertified, Price)
-    VALUES (4,4, 'AI Fundamentals', 'Introduction to AI concepts', 'AI', 'Y', 79.99)
-SELECT * FROM dual;
+-- Create and populate the Enrollments table (Child table referencing Users and Courses)
+INSERT INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate)
+VALUES 
+    (501, 101, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD')),
+    (502, 303, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD')),
+    (503, 101, 'CS102', TO_DATE('2024-09-05', 'YYYY-MM-DD')),
+    (504, 505, 'MATH103', TO_DATE('2024-09-10', 'YYYY-MM-DD')),
+    (505, 303, 'BUS104', TO_DATE('2024-09-15', 'YYYY-MM-DD')),
+    (506, 505, 'ENG101', TO_DATE('2024-09-20', 'YYYY-MM-DD'));
 
--- Populate Enrollments Table
-INSERT ALL
-    INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
-    VALUES (1, 1, 1, SYSDATE)
-    INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
-    VALUES (2, 2, 3, SYSDATE)
-    INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
-    VALUES (3, 3, 1, SYSDATE)
-    INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
-    VALUES (4, 4, 3, SYSDATE)
-SELECT * FROM dual;
+-- Create and populate the Assignments table (Child table referencing Courses)
+INSERT INTO Assignments (AssignmentID, CourseID, Title, DueDate)
+VALUES 
+    (1001, 'ENG101', 'Essay on Shakespeare', TO_DATE('2024-10-01', 'YYYY-MM-DD')),
+    (1002, 'CS102', 'Programming Basics', TO_DATE('2024-10-05', 'YYYY-MM-DD')),
+    (1003, 'MATH103', 'Limits and Derivatives', TO_DATE('2024-10-10', 'YYYY-MM-DD')),
+    (1004, 'BUS104', 'Management Case Study', TO_DATE('2024-10-15', 'YYYY-MM-DD'));
 
--- Populate Tests Table
-INSERT ALL
-    INTO Tests (TestID, CourseID, TestTitle, TestDescription)
-    VALUES (1, 1, 'Final Exam - Programming', 'Comprehensive exam covering all course material')
-    INTO Tests (TestID, CourseID, TestTitle, TestDescription)
-    VALUES (2, 2, 'Midterm - Web Development', 'Midterm exam for advanced web development course')
-    INTO Tests (TestID, CourseID, TestTitle, TestDescription)
-    VALUES (3, 3, 'Quiz - Data Structures', 'Quiz on basic data structures')
-    INTO Tests (TestID, CourseID, TestTitle, TestDescription)
-    VALUES (4, 4, 'Final Exam - AI Fundamentals', 'Final exam on AI concepts')
-SELECT * FROM dual;
-
--- Populate Scores Table
-INSERT ALL
-    INTO Scores (ScoreID, TestID, UserID, Score)
-    VALUES (1, 1, 1, 95.00)
-    INTO Scores (ScoreID, TestID, UserID, Score)
-    VALUES (2, 2, 3, 88.00)
-    INTO Scores (ScoreID,TestID, UserID, Score)
-    VALUES (3, 3, 1, 76.00)
-    INTO Scores (ScoreID, TestID, UserID, Score)
-    VALUES (4, 4, 3, 89.00)
-SELECT * FROM dual;
-
--- Populate Advertisements Tablee
-INSERT ALL
-    INTO Advertisements (AdID, CourseID, AdTitle, AdDescription, Revenue)
-    VALUES (1, 1, 'Learn Programming', 'Advertise your programming courses here', 500.00)
-    INTO Advertisements (AdID,CourseID, AdTitle, AdDescription, Revenue)
-    VALUES (2, 4, 'Master Web Development', 'Promote your web development course', 700.00)
-    INTO Advertisements (AdID,CourseID, AdTitle, AdDescription, Revenue)
-    VALUES (3, 3, 'Data Structures', 'Advertise your data structures course', 600.00)
-    INTO Advertisements (AdID,CourseID, AdTitle, AdDescription, Revenue)
-    VALUES (4, 2, 'AI Fundamentals', 'Promote your AI course', 800.00)
-SELECT * FROM Dual;
-
--- Populate CourseFeedback Table
-INSERT ALL
-    INTO CourseFeedback (FeedbackID, CourseID, UserID, Rating, Comments)
-    VALUES (1, 1, 1, 4, 'Great introduction to programming!')
-    INTO CourseFeedback (FeedbackID, CourseID, UserID, Rating, Comments)
-    VALUES (2, 3, 3, 5, 'Loved the advanced web development course!')
-    INTO CourseFeedback (FeedbackID,CourseID, UserID, Rating, Comments)
-    VALUES (3, 4, 1, 3, 'Data structures could be more detailed.')
-    INTO CourseFeedback (FeedbackID, CourseID, UserID, Rating, Comments)
-    VALUES (4, 2, 3, 4, 'Good AI fundamentals course.')
-SELECT * FROM dual;
-
--- Populate Certifications TableE
-INSERT ALL
-    INTO Certifications (CertificationID, CourseID, UserID, CertificationDate)
-    VALUES (1, 2, 3, SYSDATE)
-    INTO Certifications (CertificationID, CourseID, UserID, CertificationDate)
-    VALUES (2, 1, 1, SYSDATE)
-    INTO Certifications (CertificationID, CourseID, UserID, CertificationDate)
-    VALUES (3, 4, 3, SYSDATE)
-    INTO Certifications (CertificationID, CourseID, UserID, CertificationDate)
-    VALUES (4, 4, 1, SYSDATE)
-SELECT * FROM dual;
+-- Create and populate the Submissions table (Child table referencing Assignments and Users)
+INSERT INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade)
+VALUES 
+    (2001, 1001, 101, TO_DATE('2024-10-01', 'YYYY-MM-DD'), 85),
+    (2002, 1001, 303, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 90),
+    (2003, 1002, 101, TO_DATE('2024-10-05', 'YYYY-MM-DD'), 88),
+    (2004, 1003, 505, TO_DATE('2024-10-12', 'YYYY-MM-DD'), 92),
+    (2005, 1004, 303, TO_DATE('2024-10-16', 'YYYY-MM-DD'), 78),
+    (2006, 1001, 505, TO_DATE('2024-10-03', 'YYYY-MM-DD'), 80);
