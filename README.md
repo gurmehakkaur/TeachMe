@@ -18,8 +18,9 @@ The **TeachMe Analytical Dashboard** is a web-based data visualization tool that
 ![image](https://github.com/user-attachments/assets/fae35539-1e89-482d-b008-859f967b0b19)
 
 ## DQL Queries
-### 1. Retrieve all students who are enrolled in courses, along with the course titles and instructors.SELECT u.FirstName, u.LastName, c.Title AS CourseTitle, i.FirstName AS InstructorFirstName, i.LastName AS InstructorLastName
-![image](https://github.com/user-attachments/assets/741cb675-e97f-4f6e-b92f-14276822fcd1)
+### 1. Retrieve all students who are enrolled in courses, along with the course titles and instructors.
+![image](https://github.com/user-attachments/assets/deeef541-7e33-4614-8888-df9c83d4d7e2)
+
 
 ### 2. Create a view to list all courses along with the number of students enrolled in each course.
 ![image](https://github.com/user-attachments/assets/8e690441-cad2-4b07-8417-8a272453d46c)
