@@ -1,67 +1,95 @@
--- Insert multiple records into Users table using INSERT ALL
-INSERT ALL
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
-    VALUES (101, 'Michael', 'Scott', 'michael.scott@dundermifflin.com', 'hashedpassword1', 'Student')
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
-    VALUES (202, 'Pam', 'Beesly', 'pam.beesly@dundermifflin.com', 'hashedpassword2', 'Instructor')
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
-    VALUES (303, 'Jim', 'Halpert', 'jim.halpert@dundermifflin.com', 'hashedpassword3', 'Student')
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
-    VALUES (404, 'Dwight', 'Schrute', 'dwight.schrute@dundermifflin.com', 'hashedpassword4', 'Instructor')
-    INTO Users (UserID, FirstName, LastName, Email, Password, Role) 
-    VALUES (505, 'Angela', 'Martin', 'angela.martin@dundermifflin.com', 'hashedpassword5', 'Student')
-SELECT * FROM dual;
+-- Insert data into Users table
+INSERT INTO Users (UserID, FirstName, LastName, Email, Password, Role)
+VALUES (101, 'Michael', 'Scott', 'michael.scott@dundermifflin.com', 'hashedpassword1', 'Instructor');
+INSERT INTO Users (UserID, FirstName, LastName, Email, Password, Role)
+VALUES (102, 'Pam', 'Beesly', 'pam.beesly@dundermifflin.com', 'hashedpassword2', 'Instructor');
+INSERT INTO Users (UserID, FirstName, LastName, Email, Password, Role)
+VALUES (103, 'Jim', 'Halpert', 'jim.halpert@dundermifflin.com', 'hashedpassword3', 'Student');
+INSERT INTO Users (UserID, FirstName, LastName, Email, Password, Role)
+VALUES (104, 'Dwight', 'Schrute', 'dwight.schrute@dundermifflin.com', 'hashedpassword4', 'Instructor');
+INSERT INTO Users (UserID, FirstName, LastName, Email, Password, Role)
+VALUES (105, 'Angela', 'Martin', 'angela.martin@dundermifflin.com', 'hashedpassword5', 'Student');
 
--- Insert multiple records into Courses table using INSERT ALL
-INSERT ALL
-    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
-    VALUES ('ENG101', 'English Literature', 202, 3)
-    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
-    VALUES ('CS102', 'Introduction to Programming', 404, 4)
-    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
-    VALUES ('MATH103', 'Calculus I', 404, 3)
-    INTO Courses (CourseID, CourseName, InstructorID, Credits) 
-    VALUES ('BUS104', 'Principles of Management', 202, 3)
-SELECT * FROM dual;
+-- Insert data into Profiles table (using UserID as foreign key)
+INSERT INTO Profiles (ProfileID, UserID, Bio, ProfilePicture, Industry)
+VALUES (1001, 101, 'Regional Manager at Dunder Mifflin', 'michael_pic.jpg', 'Business');
+INSERT INTO Profiles (ProfileID, UserID, Bio, ProfilePicture, Industry)
+VALUES (1002, 102, 'Receptionist at Dunder Mifflin', 'pam_pic.jpg', 'Media');
+INSERT INTO Profiles (ProfileID, UserID, Bio, ProfilePicture, Industry)
+VALUES (1003, 103, 'Sales Representative', 'jim_pic.jpg', 'Sales');
+INSERT INTO Profiles (ProfileID, UserID, Bio, ProfilePicture, Industry)
+VALUES (1004, 104, 'Assistant Regional Manager at Dunder Mifflin', 'dwight_pic.jpg', 'Business');
+INSERT INTO Profiles (ProfileID, UserID, Bio, ProfilePicture, Industry)
+VALUES (1005, 105, 'Accountant at Dunder Mifflin', 'angela_pic.jpg', 'Finance');
 
--- Insert multiple records into Enrollments table using INSERT ALL
-INSERT ALL
-    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
-    VALUES (501, 101, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD'))
-    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
-    VALUES (502, 303, 'ENG101', TO_DATE('2024-09-01', 'YYYY-MM-DD'))
-    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
-    VALUES (503, 101, 'CS102', TO_DATE('2024-09-05', 'YYYY-MM-DD'))
-    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
-    VALUES (504, 505, 'MATH103', TO_DATE('2024-09-10', 'YYYY-MM-DD'))
-    INTO Enrollments (EnrollmentID, UserID, CourseID, EnrollmentDate) 
-    VALUES (505, 303, 'BUS104', TO_DATE('2024-09-15', 'YYYY-MM-DD'))
-SELECT * FROM dual;
+-- Insert data into Courses table (using InstructorID as foreign key)
+INSERT INTO Courses (CourseID, InstructorID, Title, Description, Industry, IsCertified, Price)
+VALUES (201, 101, 'Business Management 101', 'Introduction to business management practices', 'Business', 'N', 200.00);
+INSERT INTO Courses (CourseID, InstructorID, Title, Description, Industry, IsCertified, Price)
+VALUES (202, 104, 'Advanced Programming', 'Deep dive into advanced programming concepts', 'Technology', 'Y', 300.00);
+INSERT INTO Courses (CourseID, InstructorID, Title, Description, Industry, IsCertified, Price)
+VALUES (203, 102, 'Effective Communication', 'Improving business communication skills', 'Business', 'N', 150.00);
+INSERT INTO Courses (CourseID, InstructorID, Title, Description, Industry, IsCertified, Price)
+VALUES (204, 101, 'Business Law', 'Fundamentals of business law', 'Business', 'Y', 250.00);
+INSERT INTO Courses (CourseID, InstructorID, Title, Description, Industry, IsCertified, Price)
+VALUES (205, 103, 'Introduction to Programming', 'Learning programming concepts using Python', 'Technology', 'Y', 200.00);
 
--- Insert multiple records into Assignments table using INSERT ALL
-INSERT ALL
-    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
-    VALUES (1001, 'ENG101', 'Essay on Shakespeare', TO_DATE('2024-10-01', 'YYYY-MM-DD'))
-    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
-    VALUES (1002, 'CS102', 'Programming Basics', TO_DATE('2024-10-05', 'YYYY-MM-DD'))
-    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
-    VALUES (1003, 'MATH103', 'Limits and Derivatives', TO_DATE('2024-10-10', 'YYYY-MM-DD'))
-    INTO Assignments (AssignmentID, CourseID, Title, DueDate) 
-    VALUES (1004, 'BUS104', 'Management Case Study', TO_DATE('2024-10-15', 'YYYY-MM-DD'))
-SELECT * FROM dual;
+-- Insert data into Enrollments table (using CourseID and UserID as foreign keys)
+INSERT INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
+VALUES (301, 201, 103, TO_DATE('2024-09-01', 'YYYY-MM-DD'));
+INSERT INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
+VALUES (302, 202, 105, TO_DATE('2024-09-01', 'YYYY-MM-DD'));
+INSERT INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
+VALUES (303, 203, 103, TO_DATE('2024-09-01', 'YYYY-MM-DD'));
+INSERT INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
+VALUES (304, 204, 102, TO_DATE('2024-09-01', 'YYYY-MM-DD'));
+INSERT INTO Enrollments (EnrollmentID, CourseID, UserID, EnrollmentDate)
+VALUES (305, 205, 104, TO_DATE('2024-09-01', 'YYYY-MM-DD'));
 
--- Insert multiple records into Submissions table using INSERT ALL
-INSERT ALL
-    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
-    VALUES (2001, 1001, 101, TO_DATE('2024-10-01', 'YYYY-MM-DD'), 85)
-    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
-    VALUES (2002, 1001, 303, TO_DATE('2024-10-02', 'YYYY-MM-DD'), 90)
-    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
-    VALUES (2003, 1002, 101, TO_DATE('2024-10-05', 'YYYY-MM-DD'), 88)
-    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
-    VALUES (2004, 1003, 505, TO_DATE('2024-10-12', 'YYYY-MM-DD'), 92)
-    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
-    VALUES (2005, 1004, 303, TO_DATE('2024-10-16', 'YYYY-MM-DD'), 78)
-    INTO Submissions (SubmissionID, AssignmentID, UserID, SubmissionDate, Grade) 
-    VALUES (2006, 1001, 505, TO_DATE('2024-10-03', 'YYYY-MM-DD'), 80)
-SELECT * FROM dual;
+-- Insert data into Tests table (using CourseID as foreign key)
+INSERT INTO Tests (TestID, CourseID, TestTitle, TestDescription)
+VALUES (401, 201, 'Midterm Exam', 'Midterm exam covering business fundamentals');
+INSERT INTO Tests (TestID, CourseID, TestTitle, TestDescription)
+VALUES (402, 202, 'Final Exam', 'Final exam for advanced programming concepts');
+INSERT INTO Tests (TestID, CourseID, TestTitle, TestDescription)
+VALUES (403, 203, 'Quiz 1', 'First quiz on communication theories');
+INSERT INTO Tests (TestID, CourseID, TestTitle, TestDescription)
+VALUES (404, 204, 'Business Law Test', 'Test covering the basics of business law');
+INSERT INTO Tests (TestID, CourseID, TestTitle, TestDescription)
+VALUES (405, 205, 'Final Exam', 'Final exam for introductory programming');
+
+-- Insert data into Scores table (using TestID and UserID as foreign keys)
+INSERT INTO Scores (ScoreID, TestID, UserID, Score)
+VALUES (501, 401, 103, 85);
+INSERT INTO Scores (ScoreID, TestID, UserID, Score)
+VALUES (502, 402, 105, 90);
+INSERT INTO Scores (ScoreID, TestID, UserID, Score)
+VALUES (503, 403, 103, 92);
+INSERT INTO Scores (ScoreID, TestID, UserID, Score)
+VALUES (504, 404, 102, 88);
+INSERT INTO Scores (ScoreID, TestID, UserID, Score)
+VALUES (505, 405, 104, 80);
+
+-- Insert data into Advertisements table (using CourseID as foreign key)
+INSERT INTO Advertisements (AdID, CourseID, AdTitle, AdDescription, Revenue)
+VALUES (601, 201, 'Business Course Ad', 'Advertisement for Business Management 101', 1000.00);
+INSERT INTO Advertisements (AdID, CourseID, AdTitle, AdDescription, Revenue)
+VALUES (602, 202, 'Programming Course Ad', 'Advertisement for Advanced Programming', 1500.00);
+INSERT INTO Advertisements (AdID, CourseID, AdTitle, AdDescription, Revenue)
+VALUES (603, 203, 'Communication Course Ad', 'Advertisement for Effective Communication', 800.00);
+INSERT INTO Advertisements (AdID, CourseID, AdTitle, AdDescription, Revenue)
+VALUES (604, 204, 'Business Law Course Ad', 'Advertisement for Business Law', 1200.00);
+INSERT INTO Advertisements (AdID, CourseID, AdTitle, AdDescription, Revenue)
+VALUES (605, 205, 'Programming Course Ad', 'Advertisement for Introduction to Programming', 1300.00);
+
+-- Insert data into CourseFeedback table (using CourseID and UserID as foreign keys)
+INSERT INTO CourseFeedback (FeedbackID, CourseID, UserID, Feedback, Rating)
+VALUES (701, 201, 103, 'Great course! Learned a lot about business management.', 5);
+INSERT INTO CourseFeedback (FeedbackID, CourseID, UserID, Feedback, Rating)
+VALUES (702, 202, 105, 'Really challenging programming course, but very rewarding.', 4);
+INSERT INTO CourseFeedback (FeedbackID, CourseID, UserID, Feedback, Rating)
+VALUES (703, 203, 103, 'Enjoyed the communication exercises, they were insightful.', 5);
+INSERT INTO CourseFeedback (FeedbackID, CourseID, UserID, Feedback, Rating)
+VALUES (704, 204, 102, 'The business law course was comprehensive, but could use more examples.', 3);
+INSERT INTO CourseFeedback (FeedbackID, CourseID, UserID, Feedback, Rating)
+VALUES (705, 205, 104, 'The introductory programming course was well-paced and informative.', 4);
