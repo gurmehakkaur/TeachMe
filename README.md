@@ -59,27 +59,7 @@ Overall, this project showcases my expertise in database administration, advance
 
 
 
-## **How to Run**
 
-### **1. Set Up Database**
-- Configure a MySQL database on ClearDB (or locally) using the provided DDL statements.
-- Ensure the `CLEARDB_DATABASE_URL` environment variable is set with your database URL.
-
-### **2. Install Dependencies**
-Install the required python packages :
-
-``bash
-pip install -r requirements.txt
-
-This will include:
-
-Flask
-mysql-connector-python
-pandas
-matplotlib
-seaborn
-
-## **3. Run the application**
 export CLEARDB_DATABASE_URL='mysql://username:password@hostname/database'
 python app.py
 
