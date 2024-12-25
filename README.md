@@ -57,12 +57,3 @@ Overall, this project showcases my expertise in database administration, advance
 - **Frontend**: HTML, CSS, Bootstrap (for UI styling)
 - **Deployment**: Heroku
 
-
-
-
-export CLEARDB_DATABASE_URL='mysql://username:password@hostname/database'
-python app.py
-
-## **Access the dashboard**
-Open http://127.0.0.1:5000 in your web browser to view the dashboard, which will display generated graphs showing key metrics for the TeachMe platform.
-
